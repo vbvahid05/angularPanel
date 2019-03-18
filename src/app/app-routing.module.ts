@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './shared/auth-guard.service';
 
 const routes: Routes = [
   {
   path: '',
+      canActivate: [AuthGuard],
   data: {
       title: 'Get Started'
   },
@@ -138,6 +140,7 @@ const routes: Routes = [
   },
     {
         path: 'users',
+        canActivate: [AuthGuard],
         loadChildren: './+users/users.module#UsersModule',
         data: {
             title: 'Users',

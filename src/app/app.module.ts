@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
+import { AuthGuard } from './shared/auth-guard.service';
+import { AuthService } from './shared/auth.service';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
     AppComponent,
     HomeComponent
   ],
+    providers: [ AuthService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
