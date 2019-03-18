@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border-color: #eae3e3;
+}
+
+body{
+  direction: rtl !important;
+}
+.main-sidebar
+{
+  right: 0 !important;
+  left: 83%;
+  width: 17%;
+}
+
+.content-wrapper {
+  margin-right: 17%;
+  left: 0px;
+  margin-left: 0;
+}
+.sidebar-right-toggle {
+  float: left !important;
+}
+
+nav.navbar.navbar-static-top {
+  margin-right: 17% !important;
+}
+.main-header .logo {
+  float: right;
+}
+.main-header .navbar {
+  margin-right: 17% !important;
+  margin-left: 0;
+}
+.navbar-custom-menu {
+  float: left !important;
+}
+
+li.messages-menu {
+  float: right;
+}
+li.tasks-menu {
+  float: right;
+}
+li.notifications-menu {
+  float: right;
+}
+
+.navbar-custom-menu > .navbar-nav > li > .dropdown-menu {
+  right: -20px;
+}
+.sidebar-menu li > a > .pull-right-container {
+  left: 10px !important;
+  right: auto;
+}
+
+.breadcrumb
+{
+  position: absolute !important;
+  left: 0 !important;
+  right: auto !important;
+  direction: rtl;
+  text-align: right;
+}
+
+footer.main-footer {
+  margin-right: 17%;
+  margin-left: 0;
+}
+
+ul.nav.nav-tabs li {
+  float: right;
+}
