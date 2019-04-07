@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { AuthGuard } from './shared/auth-guard.service';
 import { AuthService } from './shared/auth.service';
+import { PostsModule } from './+posts/posts.module';
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import { AuthService } from './shared/auth.service';
     AppRoutingModule,
     CoreModule,
     LayoutModule.forRoot(adminLteConf),
-    LoadingPageModule, MaterialBarModule
+    LoadingPageModule, MaterialBarModule,
+      PostsModule,
+
   ],
   declarations: [
     AppComponent,

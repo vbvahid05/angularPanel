@@ -10,7 +10,7 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTre
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-    private router: any;
+    // private router: any;
   constructor(public auth: AuthService, public router: Router) {  }
 
   ngOnInit() {

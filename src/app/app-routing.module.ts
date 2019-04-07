@@ -7,7 +7,7 @@ import { AuthGuard } from './shared/auth-guard.service';
 const routes: Routes = [
   {
   path: '',
-      canActivate: [AuthGuard],
+       canActivate: [AuthGuard],
   data: {
       title: 'Get Started'
   },

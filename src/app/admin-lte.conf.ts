@@ -12,6 +12,12 @@ export const adminLteConf = {
     {label: 'MAIN NAVIGATION', separator: true},
     {label: 'داشبورد', route: '/', iconClasses: 'fa fa-road', pullRights: [{text: 'New', classes: 'label pull-right bg-green'}]},
     {label: 'کاربران', route: 'users', iconClasses: 'fa fa-tasks' , pullRights: [{text: 'جدید', classes: 'label pull-right bg-red'}]},
+
+      {label: 'نوشته ها', iconClasses: 'fa fa-th-list', children: [
+          {label: 'نوشته جدید', route: 'posts/single'},
+          {label: 'همه نوشته ها', route: 'posts/list'},
+          {label: 'دسته بندی', route: 'posts/category'},
+        ]}
     // {label: 'Layout', iconClasses: 'fa fa-th-list', children: [
     //     {label: 'Configuration', route: 'layout/configuration'},
     //     {label: 'Custom', route: 'layout/custom'},

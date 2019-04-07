@@ -10,9 +10,9 @@ export class AuthService {
     loclStrg: boolean;
     finalStatus: boolean;
     isAuthenticate() {
-       // return this.logedIn;
-       this.loclStrg = JSON.parse(localStorage.getItem('loggedIn') || 'false');
-       this.finalStatus = this.loclStrg || this.logedIn;
+        this.loclStrg = JSON.parse(localStorage.getItem('loggedIn') || 'false');
+        this.finalStatus = this.loclStrg || this.logedIn;
+       //  this.finalStatus =   this.logedIn;
         const promisez = new Promise(
             (resolve , reject ) => {
                 setTimeout(() => {
