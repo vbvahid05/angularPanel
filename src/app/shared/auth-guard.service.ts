@@ -6,23 +6,23 @@ import {AuthService} from './auth.service';
 
 // noinspection JSAnnotator
 @Injectable()
+export class AuthGuard{
+// export class AuthGuard implements CanActivate {
+//     constructor(public auth: AuthService, public router: Router) {
+//     }
 
-export class AuthGuard implements CanActivate {
-    constructor(public auth: AuthService, public router: Router) {
-    }
-
-    canActivate(route: ActivatedRouteSnapshot,
-                state: RouterStateSnapshot):  Observable <boolean  | Promise <boolean > | boolean > {
-        return this.auth.isAuthenticate().then(
-            (logedin: boolean) => {
-                if (logedin) {
-                    return true;
-                } else {
-                    this.router.navigate(['/login']);
-                }
-            }
-        );
-    }
+    // canActivate(route: ActivatedRouteSnapshot,
+    //             state: RouterStateSnapshot):  Observable <boolean  | Promise <boolean > | boolean > {
+    //     return this.auth.isAuthenticate().then(
+    //         (logedin: boolean) => {
+    //             if (logedin) {
+    //                 return true;
+    //             } else {
+    //                 this.router.navigate(['/login']);
+    //             }
+    //         }
+    //     );
+    // }
 
 
     // canActivate(): boolean {

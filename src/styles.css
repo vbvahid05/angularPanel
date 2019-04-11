@@ -1,5 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
+@font-face
+{
+  font-family:'iransans';
+  src: url('assets/fonts/iransans.eot?#') format('eot'),/* IE6â€“8 */
+  url('assets/fonts/iransans.woff') format('woff')/* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  /*url('assets/fonts/iransans.ttf') format('truetype');!* Saf3â€”5, Chrome4+, FF3.5, Opera 10+ *!*/
+}
+.fontIransans{
+  font-family: iransans !important;
+}
+body{
+  font-family: iransans !important;
+}
+
+
+
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
 .table-bordered > tfoot > tr > th,
@@ -76,4 +92,51 @@ footer.main-footer {
 
 ul.nav.nav-tabs li {
   float: right;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.customTable tr th {
+  text-align: right;
+}
+
+.hover{
+    background: red !important;
+    color: green !important;
+}
+
+
+.customMatTable th {
+  text-align: right !important;
+  padding-right: 20px !important;
+  font-family: iransans !important;
+}
+.customMatTable tr td{
+  padding-right: 20px !important;
+  font-family: iransans !important;
+}
+
+ button.mat-menu-item {
+  text-align: right;
+   font-family: iransans !important;
+}
+
+button.mat-paginator-navigation-last.mat-icon-button.ng-star-inserted {
+  position: absolute  !important;
+  right: 30px  !important;
+}
+button.mat-paginator-navigation-next.mat-icon-button {
+  position: absolute  !important;
+  right: 70px  !important;
+}
+button.mat-paginator-navigation-previous.mat-icon-button {
+  position: absolute  !important;
+  right: 120px  !important ;
+}
+button.mat-paginator-navigation-first.mat-icon-button.ng-star-inserted {
+  position: absolute  !important;
+  right: 160px  !important;
+}
+.mat-paginator-range-label {
+  direction: ltr !important;
 }

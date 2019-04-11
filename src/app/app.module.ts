@@ -16,6 +16,11 @@ import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { AuthGuard } from './shared/auth-guard.service';
 import { AuthService } from './shared/auth.service';
 import { PostsModule } from './+posts/posts.module';
+import { MenusModule } from './+menus/menus.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DropdownDirective } from './shared/directives/dropdown.directive';
+import { MouseHoverDirective } from './shared/directives/mouse-hover.directive';
+
 
 
 @NgModule({
@@ -26,13 +31,15 @@ import { PostsModule } from './+posts/posts.module';
     LayoutModule.forRoot(adminLteConf),
     LoadingPageModule, MaterialBarModule,
       PostsModule,
-
+      MenusModule,
+      BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
-    providers: [ AuthService, AuthGuard ],
+    providers: [AuthService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

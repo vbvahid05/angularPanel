@@ -1,0 +1,97 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, MatTableDataSource } from '@angular/material';
+
+
+
+export interface PeriodicElement {
+    name: string;
+    position: number;
+    weight: number;
+    symbol: string;
+}
+let ELEMENT_DATA: PeriodicElement[];
+ELEMENT_DATA = [
+    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+];
+let displayedColumns;
+displayedColumns = [];
+
+@Component({
+  selector: 'app-all-menus',
+  templateUrl: './all-menus.component.html',
+  styleUrls: ['./all-menus.component.css']
+})
+export class AllMenusComponent implements OnInit {
+   //  private displayedColumns: any;
+   //  @ViewChild(MatSort) sort: MatSort;
+   // DATA = [
+   //      {position: 1, name: '33333', weight: 1.0079, symbol: 'H'},
+   //      {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+   //      {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+   //      {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+   //      {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+   //      {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+   //      {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+   //      {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+   //      {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+   //      {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+   //  ];
+   //  constructor() { }
+   //  columnNames = [{
+   //      id: 'position',
+   //      value: 'No.'
+   //
+   //  }, {
+   //      id: 'name',
+   //      value: 'Name'
+   //  },
+   //      {
+   //          id: 'weight',
+   //          value: 'Weight'
+   //      },
+   //      {
+   //          id: 'symbol',
+   //          value: 'Symbol'
+   //      }
+   //      ,
+   //      {
+   //          id: 'action',
+   //          value: 'Action'
+   //      }
+   //      ];
+   //
+   //  dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+  ngOnInit() {
+     // this.displayedColumns = this.columnNames.map(x => x.id);
+  }
+
+    onSelectSave(id) {
+        alert(id);
+    }
+}
+
+
+
+
+
+
+
+
+<mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column.id}}" *ngFor="let column of columnNames">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.value}}  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element[column.id]}}  </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row  >
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

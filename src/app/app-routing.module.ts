@@ -7,7 +7,7 @@ import { AuthGuard } from './shared/auth-guard.service';
 const routes: Routes = [
   {
   path: '',
-       canActivate: [AuthGuard],
+       // canActivate: [AuthGuard],
   data: {
       title: 'Get Started'
   },
@@ -140,7 +140,7 @@ const routes: Routes = [
   },
     {
         path: 'users',
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         loadChildren: './+users/users.module#UsersModule',
         data: {
             title: 'Users',

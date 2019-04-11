@@ -13,11 +13,18 @@ export const adminLteConf = {
     {label: 'داشبورد', route: '/', iconClasses: 'fa fa-road', pullRights: [{text: 'New', classes: 'label pull-right bg-green'}]},
     {label: 'کاربران', route: 'users', iconClasses: 'fa fa-tasks' , pullRights: [{text: 'جدید', classes: 'label pull-right bg-red'}]},
 
-      {label: 'نوشته ها', iconClasses: 'fa fa-th-list', children: [
+      {label: 'منو ها', iconClasses: 'fa fa-th-list', children: [
+           {label: 'منو جدید', route: 'menus/newMenu'},
+           {label: 'همه منوها', route: 'menus/listMenu'},
+           ]},
+
+      {label: 'نوشته ها', iconClasses: 'fa fa-file-text', children: [
           {label: 'نوشته جدید', route: 'posts/single'},
           {label: 'همه نوشته ها', route: 'posts/list'},
           {label: 'دسته بندی', route: 'posts/category'},
         ]}
+
+
     // {label: 'Layout', iconClasses: 'fa fa-th-list', children: [
     //     {label: 'Configuration', route: 'layout/configuration'},
     //     {label: 'Custom', route: 'layout/custom'},

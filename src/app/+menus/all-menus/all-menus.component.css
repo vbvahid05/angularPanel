@@ -1,0 +1,14 @@
+.doHover
+{
+    cursor: pointer;
+    text-align: right;
+    padding-right: 10px;
+}
+.doHover:hover
+{
+    background: #c2c2c2;
+    color: #000;
+}
+table {
+    width: 100%;
+}

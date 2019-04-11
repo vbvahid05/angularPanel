@@ -1,0 +1,32 @@
+<mat-toolbar class="fontIransans">
+  <a class="btn btn-info" [routerLink]="['/menus/listMenu']" style="position: absolute;left: 25px;"> بازگشت</a>
+</mat-toolbar>
+<br/>
+<div class="col-md-6 col-sm-12 pull-right">
+<form [formGroup]="menuGroupForm" (ngSubmit)="onSubmitNewMenuGroup()"   >
+  <div class="form-group has-feedback">
+    <input formControlName="name" type="text" class="form-control" placeholder="name">
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+  </div>
+  <div class="form-group has-feedback">
+    <input formControlName="caption" type="text" class="form-control" placeholder="caption">
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+  </div>
+  <div class="form-group has-feedback">
+    <input formControlName="imageUrl" type="text" class="form-control" placeholder="imageUrl">
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+  </div>
+  <div class="form-group has-feedback">
+    <input formControlName="sortOrder" type="number" class="form-control"  placeholder="sortOrder">
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+  </div>
+
+  <div class="form-group has-feedback">
+    <mat-slide-toggle   [(ngModel)]="checked" color="primary"   formControlName="isActive" >Is Active</mat-slide-toggle>
+  </div>
+
+
+
+  <button type="submit" class="btn btn-primary btn-block btn-flat">save</button>
+</form>
+</div>

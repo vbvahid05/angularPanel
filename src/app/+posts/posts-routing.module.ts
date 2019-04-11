@@ -8,7 +8,8 @@ import { CategoryComponent } from './category/category.component';
 
 const routes: Routes = [
     // {path: 'posts', component: ListComponent },
-    {path: 'posts', canActivate: [AuthGuard], data: {title: 'نوشته ها'}, children: [
+    //{path: 'posts', canActivate: [AuthGuard], data: {title: 'نوشته ها'}, children: [
+    {path: 'posts', data: {title: 'نوشته ها'}, children: [
             {path: 'list', data: {title: 'همه نوشته ها'}, component: ListComponent},
             {path: 'single', data: {title: 'نوشته'}, component: SingleComponent},
             {path: 'category', data: {title: 'دسته بندی'}, component: CategoryComponent},

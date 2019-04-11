@@ -1,0 +1,92 @@
+
+
+<mat-toolbar>
+  <a class="btn btn-success fontIransans" [routerLink]="['/menus/newMenu']" >
+    <i class="fa fa-plus"></i>
+    جدید
+  </a>
+  &nbsp;
+  <a class="btn btn-default fontIransans" [routerLink]="['/menus/editMenu',16]" >
+    <i class="fa fa-edit"></i>
+    تست ویرایش
+  </a>
+  &nbsp;
+  <button  mat-button class="btn btn-danger" (click)="openDialog()">dialog</button>
+  <mat-slider
+          thumbLabel
+          [displayWith]="formatLabel"
+          tickInterval="10"
+          min="1"
+          max="100">
+  </mat-slider>
+
+</mat-toolbar>
+<br/>
+
+
+
+
+
+<div class="mat-elevation-z8 ">
+  <table mat-table [dataSource]="dataSource" class="customMatTable">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> # </th>
+      <td mat-cell *matCellDef="let element"> {{element.menuGroupId}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> شناسه </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> عنوان </th>
+      <td mat-cell *matCellDef="let element"> {{element.caption}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> وضعیت </th>
+      <td mat-cell *matCellDef="let element">
+        <span  *ngIf="element.isActive" class="fontIransans text-green"><i class="fa fa-circle text-green"></i>  فعال &nbsp;</span>
+        <span  *ngIf="!element.isActive"  class="fontIransans text-red">  <i  class="fa  fa-circle-o text-red"></i>  غیرفعال &nbsp;</span>
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> مدیریت </th>
+      <td mat-cell *matCellDef="let element">
+        <!--<span class="btn btn-primary" (click)="onSelectSave(element.symbol)">edit</span> -->
+        <mat-menu #appMenu="matMenu"  xPosition="before">
+          <button mat-menu-item [routerLink]="['/menus/editMenu',element.menuGroupId]">
+            ویرایش
+            <i class="fa fa-edit"></i>
+          </button>
+          <button mat-menu-item (click)="delete_menuGroup(element.menuGroupId)">
+            حذف
+            <i class="fa  fa-trash-o"></i>
+          </button>
+        </mat-menu>
+
+        <button mat-icon-button [matMenuTriggerFor]="appMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+</div>
+
+
+<!--<ul>-->
+  <!--<li *ngFor="let k of kk"> {{k.id}} {{k.name}} {{k.caption}}</li>-->
+<!--</ul>-->
