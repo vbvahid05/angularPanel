@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewChild, Inject, AfterViewInit, OnChanges } from '@angular/core';
-import { MatDialog, MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild, Inject, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
+import { MatDialog, MatSnackBar, MatTableDataSource } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { DialogMenuComponent } from './dialog-menu/dialog-menu.component';
-import { HttpService } from '../../shared/services/httpService.service';
+import { HttpService } from '../../shared/services/httpService_Menus.service';
 import { MenuGroup } from './MenuGroup.Model';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { Status } from 'tslint/lib/runner';
+import { StatusModel } from '../../shared/models/status.Model';
 
 
 
@@ -12,13 +15,22 @@ import { MenuGroup } from './MenuGroup.Model';
   templateUrl: './all-menus.component.html',
   styleUrls: ['./all-menus.component.css']
 })
-export class AllMenusComponent implements OnInit , AfterViewInit , OnChanges {
-    constructor(public dialog: MatDialog , private  httpservice: HttpService ) {}
+export class AllMenusComponent implements OnInit , AfterViewInit , OnChanges  , OnDestroy {
+
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'action'];
     ELEMENT_DATA: any;
     kk: any;
     dataSource = new MatTableDataSource<MenuGroup>();
     @ViewChild(MatPaginator) paginator: MatPaginator;
+    menuListSubscription: Subscription ;
+    menuEditSubscription: Subscription ;
+    menuDeleteSubscription: Subscription;
+    message = '';
+    private errorCode: string;
+
+    constructor(public dialog: MatDialog , private  httpservice: HttpService , private toastMessage: MatSnackBar) {
+        this.get_MenuGroupList();
+    }
 
     ngOnChanges() {
 
@@ -27,11 +39,11 @@ export class AllMenusComponent implements OnInit , AfterViewInit , OnChanges {
       this.dataSource.paginator = this.paginator;
   }
     ngAfterViewInit() {
-        this.get_MenuGroupList();
+
     }
 
     get_MenuGroupList() {
-    this.httpservice.fetchMenuGroup().subscribe(
+    this.menuListSubscription = this.httpservice.fetchMenuGroup().subscribe(
         (response) => {
             console.log(response);
             this.kk = response;
@@ -69,10 +81,11 @@ export class AllMenusComponent implements OnInit , AfterViewInit , OnChanges {
             caption : 'ویرایش شده داستان  جدید ' ,
             imageUrl : 'http://' ,
             sortOrder : 0 ,
-            isActive : false
+            isActive : true
         };
-        this.httpservice.EditMenuGroup(newMenu).subscribe(
+      this.menuEditSubscription = this.httpservice.EditMenuGroup(newMenu).subscribe(
             (response) => {
+                  console.log('In edit' + response);
                 // console.log(response.headers.get('name'));
                 // this.get_MenuGroupList();
             }
@@ -81,13 +94,26 @@ export class AllMenusComponent implements OnInit , AfterViewInit , OnChanges {
 
 
     delete_menuGroup(id) {
-        this.httpservice.deleteMenuGroup(id).subscribe(
-            (respons) => {
-                console.log(respons.status);
+        this.menuDeleteSubscription = this.httpservice.deleteMenuGroup(id).subscribe(
+            (respons: StatusModel) => {
+                this.get_MenuGroupList();
+
+                if (respons.status) {
+                     this.message = respons.message.result;
+                } else {
+                    if (respons.statusCode != -1) {
+                        this.errorCode = respons.statusCode + 'کد خطا';
+                        this.message = respons.message.result + this.errorCode ;
+                    }
+                }
+                const  action = '';
+                this.toastMessage.open(this.message , action , { duration: 3000 , });
             }
         );
-
     }
+
+
+
 
     openDialog() {
         this.dialog.open(DialogMenuComponent, {
@@ -110,6 +136,12 @@ export class AllMenusComponent implements OnInit , AfterViewInit , OnChanges {
                 }
             }
         });
+    }
+
+    ngOnDestroy() {
+         this.menuListSubscription.unsubscribe();
+         if ( this.menuEditSubscription) { this.menuEditSubscription.unsubscribe(); }
+         if (this.menuDeleteSubscription) { this.menuDeleteSubscription.unsubscribe(); }
     }
 }
 

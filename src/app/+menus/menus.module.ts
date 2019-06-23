@@ -16,10 +16,12 @@ import {
     MatToolbarModule
 } from '@angular/material';
 import { DialogMenuComponent } from './all-menus/dialog-menu/dialog-menu.component';
-import { HttpService } from '../shared/services/httpService.service';
+import { HttpService } from '../shared/services/httpService_Menus.service';
 import { RouterModule } from '@angular/router';
 import { EditMenuComponent } from './edit-menu/edit-menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BoxModule } from 'angular-admin-lte';
+
 
 
 
@@ -44,11 +46,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       MatSnackBarModule,
       RouterModule,
       FormsModule ,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      BoxModule
 
   ],
     providers: [
-        HttpService,
+        HttpService
     ],
     exports: [
         MenusRoutingModule ,

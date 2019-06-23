@@ -20,7 +20,10 @@
     <input formControlName="sortOrder" type="number" class="form-control"  placeholder="sortOrder">
     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
   </div>
-
+  <div class="form-group has-feedback">
+    <input formControlName="parentMenuGroupId" type="number" class="form-control"  placeholder="parentMenuGroupId">
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+  </div>
   <div class="form-group has-feedback">
     <mat-slide-toggle   [(ngModel)]="checked" color="primary"   formControlName="isActive" >Is Active</mat-slide-toggle>
   </div>

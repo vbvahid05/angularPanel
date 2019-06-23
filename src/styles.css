@@ -140,3 +140,18 @@ button.mat-paginator-navigation-first.mat-icon-button.ng-star-inserted {
 .mat-paginator-range-label {
   direction: ltr !important;
 }
+
+simple-snack-bar.mat-simple-snackbar.ng-star-inserted span {
+  position: absolute !important;
+  right: 15px !important;
+}
+
+button.btn.btn-box-tool {
+  left: 15px !important;
+  position: absolute !important;
+  background: white;
+  padding: 0;
+  border-radius: 100px;
+  height: 15px;
+  width: 15px;
+}

@@ -4,10 +4,11 @@
 
 <br/>
 
-<div class="col-md-6 col-sm-12 pull-right">
-  <form [formGroup]="menuGroupForm" (ngSubmit)="onSubmitNewMenuGroup()"   >
+<div class="col-md-6 col-sm-12 pull-right fontIransans">
+  <mk-box   header="ویرایش " [isRemovable]="false" [isCollapsed]="false">
+  <form [formGroup]="menuGroupEditForm" (ngSubmit)="onSubmitEditMenuGroup()"   >
     <div class="form-group has-feedback">
-      <input formControlName="name" type="text" class="form-control" placeholder="name">
+      <input formControlName="name" type="text" class="form-control" placeholder="name" >
       <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
     </div>
     <div class="form-group has-feedback">
@@ -26,9 +27,13 @@
     <div class="form-group has-feedback">
       <mat-slide-toggle   [(ngModel)]="checked" color="primary"   formControlName="isActive" >Is Active</mat-slide-toggle>
     </div>
-
-
-
-    <button type="submit" class="btn btn-primary btn-block btn-flat">save</button>
+    <button type="submit" class="btn btn-primary btn-block btn-flat">ویرایش</button>
   </form>
+  </mk-box>
+</div>
+
+<div class="col-md-6 col-sm-12 pull-right">
+  <mk-box header="زیر منو ها" [isRemovable]="false" [isCollapsed]="false">
+    The body of the box
+  </mk-box>
 </div>

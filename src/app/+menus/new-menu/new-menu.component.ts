@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { HttpService } from '../../shared/services/httpService.service';
+import { HttpService } from '../../shared/services/httpService_Menus.service';
 import { MenuGroup } from '../all-menus/MenuGroup.Model';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
@@ -28,14 +28,15 @@ export class NewMenuComponent implements OnInit {
         name: new FormControl(null),
         caption: new FormControl(null),
         imageUrl: new FormControl(null),
-        sortOrder: new FormControl(null),
+        sortOrder: new FormControl(0),
         isActive: new FormControl(null),
+        parentMenuGroupId: new FormControl(null),
         }
     );
   }
 
     onSubmitNewMenuGroup () {
-    // console.log(this.menuGroupForm.value);
+     console.log(this.menuGroupForm.value);
     const newMenu: MenuGroup = this.menuGroupForm.value;
         this.httpservice.postNewMenuGroup(newMenu).subscribe(
             (response) => {

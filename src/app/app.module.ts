@@ -20,6 +20,7 @@ import { MenusModule } from './+menus/menus.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { MouseHoverDirective } from './shared/directives/mouse-hover.directive';
+import { PublicService } from './shared/services/public.service';
 
 
 
@@ -39,7 +40,7 @@ import { MouseHoverDirective } from './shared/directives/mouse-hover.directive';
     HomeComponent,
 
   ],
-    providers: [AuthService, AuthGuard ],
+    providers: [AuthService, AuthGuard , PublicService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
